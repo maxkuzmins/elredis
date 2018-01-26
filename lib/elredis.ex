@@ -48,8 +48,18 @@ defmodule Elredis do
        is_integer(connectTimeout) do
 
     # TODO - create elredis_client module and use it as a proxy to create eredis client procs
+    # TODO - this function to return pid of a Elredis.client_sup
 
     :eredis_client.start_link(host, port, database, password, reconnectSleep, connectTimeout)
+  end
+
+  def q(client, command) do
+    Elredis.q(client, command, @timeout)
+  end
+
+  def q(client, command, timeout) do
+    # TODO - this function to forward command to Elredis.client_sup
+    :eredis.q(client, command, timeout)
   end
 
 end

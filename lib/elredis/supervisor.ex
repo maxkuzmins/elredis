@@ -1,8 +1,6 @@
 defmodule Elredis.Supervisor do
   @moduledoc false
   
-
-
   use Supervisor
 
   def start_link(arg) do
@@ -10,14 +8,8 @@ defmodule Elredis.Supervisor do
   end
 
   def init(arg) do
-
-    :io.format("hi from supervisor. I'm about to die btw.~n", [])
-
-    # TODO - start eredis here
-    children = [
-      worker(Elredis.Observer, [arg], restart: :temporary)
-    ]
-
+    :io.format("Please use Elredis.start_link/N to create client connections to Redis.~n", [])
+    children = []
     supervise(children, strategy: :one_for_one)
   end
 end
