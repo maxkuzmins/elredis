@@ -19,3 +19,14 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/elredis](https://hexdocs.pm/elredis).
 
+## Examples
+### Connecting to a Redis cluster
+
+```elixir
+Elredis.start_link_cluster([
+    {'127.0.0.1', 7000, 0, String.codepoints(""), 100, 5000}, 
+    {'127.0.0.1', 7001, 0, String.codepoints(""), 100, 5000},
+    {'127.0.0.1', 7002, 0, String.codepoints(""), 100, 5000}
+])
+{:ok, #PID<0.125.0>}
+```

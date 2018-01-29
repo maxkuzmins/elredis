@@ -8,7 +8,12 @@ defmodule Elredis.Supervisor do
   end
 
   def init(arg) do
-    :io.format("Please use Elredis.start_link/N to create client connections to Redis.~n", [])
+    :io.format("""
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Please use an appropriate Elredis function to start an individual client or a cluster connection to Redis.
+      Stopping...
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    """, [])
     children = []
     supervise(children, strategy: :one_for_one)
   end
